@@ -133,8 +133,23 @@ const searchMovies = () =>{
 }
 searchMovies()
 
-// text.addEventListener('keyup',(e)=>{
-//     if(e.key==='Enter'){
-//         search()
-//     }
-// })
+const enterMovies = () =>{
+
+
+    input.addEventListener('keyup',(e)=>{
+        if(e.key==='Enter'){
+        if(input.value && input.value.trim()){
+            getMovies(API_URL_SEARCH+input.value)
+            portal=input.value
+            console.log(portal)
+              
+        }else{
+            getMovies(API_URL_POPULAR)
+            portal=''
+        }
+    }
+      
+    })
+}
+
+enterMovies()
